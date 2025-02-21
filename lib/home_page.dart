@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/button.dart';
+import 'package:myapp/snail.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -9,6 +10,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  //Snail
+  int snailCount = 1;
+  double snailPosX = 0.5;
+  String snailDirection = 'left';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +23,15 @@ class _HomePageState extends State<HomePage> {
             flex: 3,
             child: Container(
               color: Colors.blue[300],
-            ),
+              child: Stack(
+                children: [
+                  Snail(
+                    snailCount: snailCount, 
+                    snailDirection: snailDirection,
+                  ),
+                ],
+              ),
+            ), 
           ),
           //Grass
           Container(
